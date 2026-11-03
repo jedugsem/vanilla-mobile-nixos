@@ -37,7 +37,7 @@
 
         cp ${./sm8250-oneplus-kebab.dts} \
           "$DTS_DIR/sm8250-oneplus-kebab.dts"
-        #cp -f ${./qcom-phone.env} board/qualcomm/qcom-phone.env
+        #cp -f ./qcom-phone.env board/qualcomm/qcom-phone.env
 
         chmod -R u+w "$DTS_DIR"
       '';
