@@ -18,6 +18,10 @@ in
     dtb = "qcom/sm8250-oneplus-kebab";
     defconfig = "qcom_defconfig qcom-phone.config";
   };
+  oneplus-kebab-boot-image = mkAndroidBootImage {
+    uboot = ubootPackages.oneplus-kebab;
+  };
+
   xiaomi-beryllium-tianma = buildTauchgangUBoot {
     pname = "xiaomi-beryllium-tianma";
     dtb = "qcom/sdm845-xiaomi-beryllium-tianma";
