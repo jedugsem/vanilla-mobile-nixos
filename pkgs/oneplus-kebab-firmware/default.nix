@@ -7,7 +7,7 @@
 
 stdenvNoCC.mkDerivation {
 
-  pname = "firmware-oneplus-kebab";
+  pname = "oneplus-kebab-firmware";
   version = "1";
   srcs = [
     (fetchurl {
