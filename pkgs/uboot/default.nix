@@ -13,6 +13,11 @@ let
   inherit (ubootUtils) buildTauchgangUBoot mkAndroidBootImage mkAndroidBootImageQCDT;
 in
 {
+  oneplus-kebab = buildTauchgangUBoot {
+    pname = "oneplus-kebab";
+    dtb = "qcom/sm8250-oneplus-kebab";
+    defconfig = "qcom_defconfig qcom-phone.config";
+  };
   xiaomi-beryllium-tianma = buildTauchgangUBoot {
     pname = "xiaomi-beryllium-tianma";
     dtb = "qcom/sdm845-xiaomi-beryllium-tianma";
