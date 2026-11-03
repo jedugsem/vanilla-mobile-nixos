@@ -38,7 +38,7 @@ let
 
      src = fetchurl {
        url = "https://gitlab.postmarketos.org/soc/qualcomm-sm8250/linux/-/archive/sm8250-7.2.0_git20261010/linux-sm8250-7.2.0_git20261010.tar.gz";
-       hash = lib.fakeHash;
+       hash = "sha256-mTID04ZPrgZSFxpQdZZe+njiGGe8nE7wUWnoWABCNKQ=";
      };
 
       inherit version;
