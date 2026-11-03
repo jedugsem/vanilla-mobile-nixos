@@ -134,10 +134,10 @@ in
       };
     };
 
-    # services.q6voiced.settings = {
-    #   q6voice_card = 0;
-    #   q6voice_device = 4;
-    # };
+    services.q6voiced.settings = {
+      q6voice_card = 0;
+      q6voice_device = 4;
+    };
   };
 
   meta.maintainers = [ lib.maintainers.junestepp ];
