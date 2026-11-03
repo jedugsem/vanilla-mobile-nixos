@@ -10,10 +10,12 @@ in
   dtbtool-exynos = callPackage ./dtbtool-exynos { };
   ubootUtils = recurseIntoAttrs (callPackage ./uboot/utils.nix { });
   ubootPackages = recurseIntoAttrs (callPackage ./uboot { });
+  qca-swiss-army-knife = callPackage ./qca-swiss-army-knife {};
 
   # Firmware
   xiaomi-beryllium-firmware = callPackage ./xiaomi-beryllium-firmware { };
   oneplus-sdm845-firmware = callPackage ./oneplus-sdm845-firmware { };
+  oneplus-kebab-firmware = callPackage ./oneplus-kebab-firmware { };
 
   alsa-ucm-conf-sdm845 = callPackage ./alsa-ucm-conf-sdm845 { };
 
