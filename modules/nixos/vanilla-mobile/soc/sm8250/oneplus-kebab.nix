@@ -32,7 +32,7 @@ in
         dtb = "qcom/sm8250-oneplus-kebab.dtb";
         imageSectorSize = 4096;
         firmware = self.packages.oneplus-kebab-firmware;
-        uboot = self.packages.ubootPackages.oneplus-kebab;
+        uboot = self.packages.ubootPackages.oneplus-kebab-boot-image;
       };
       soc.sm8250.enable = true;
     };
