@@ -44,7 +44,7 @@ let
 
      src = fetchurl {
        url = "https://gitlab.nura.eco/Frieder.Hannenheim/sm-8250-mainline/-/archive/240c4e0ec544304eb8be8a2d75ac67200de8e4f8/sm-8250-mainline-240c4e0ec544304eb8be8a2d75ac67200de8e4f8.tar.gz";
-       hash = "sha256-mTID04ZPrgZSFxpQdZZe+njiGGe8nE7wUWnoWABCNKQ=";
+       hash = "sha256-4+8v/XZfq2f8Buxws01FixO5a7HfEs6DEXbn/SnfCZY=";
      };
       inherit version;
       isLTS = false;
