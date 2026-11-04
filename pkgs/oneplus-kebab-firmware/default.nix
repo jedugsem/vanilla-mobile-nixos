@@ -47,13 +47,18 @@ stdenvNoCC.mkDerivation {
     	    cd ..
 
           install -Dm644 "wlan/board-2.bin" -t "$firmwareDir/ath11k/QCA6390/hw2.0"
+          install -Dm644 "wlan/board-2.bin" \
+  "$firmwareDir/ath11k/QCA6390/hw2.0/board2.bin"
+
           install -Dm644 "wlan/board-2.bin" -t "$firmwareDir/postmarketos/ath11k/QCA6390/hw2.0"
 
+          install -Dm644 "wlan/board-2.bin" \
+  "$firmwareDir/postmarketos/ath11k/QCA6390/hw2.0/board2.bin"
     	    install -Dm644 "wlan/amss.bin" -t "$firmwareDir/ath11k/QCA6390/hw2.0"
     	    install -Dm644 "wlan/amss.bin" -t "$firmwareDir/postmarketos/ath11k/QCA6390/hw2.0"
 
     	    install -Dm644 "wlan/m3.bin" -t "$firmwareDir/ath11k/QCA6390/hw2.0"
-    	    install -Dm644 "wlan/m3.bin" -t "$firmwareDir/postmarketos/ath11k/QCA6390/hw2.0"
+    	    install -Dm644 "wlan/m3.bin" -t "$firmwareDir/postmarketos/ath11k/QCA6390/hw2.0/"
 
 
           cd ../firmware-oneplus-kebab-*
