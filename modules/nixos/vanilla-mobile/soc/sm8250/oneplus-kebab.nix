@@ -67,6 +67,7 @@ in
               "qcom/sm8250/OnePlus/kebab/slpi.mbn"
               "qcom/sm8250/OnePlus/kebab/venus.mbn"
               "ath11k/QCA6390/hw2.0/board2.bin"
+              "ath11k/QCA6390/hw2.0/board-2.bin"
               "ath11k/QCA6390/hw2.0/amss.bin"
               "ath11k/QCA6390/hw2.0/m3.bin"
 
