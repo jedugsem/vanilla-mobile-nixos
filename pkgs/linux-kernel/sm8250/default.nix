@@ -32,19 +32,24 @@ let
   # SDM845 isn't updated past Linux 7.1 yet.
   kernel =
     let
-      version = "7.2";
+      version = "7.3";
     in
     buildLinux {
 
+     # src = fetchurl {
+     #   url = "https://gitlab.postmarketos.org/soc/qualcomm-sm8250/linux/-/archive/sm8250-7.2.0_git20261010/linux-sm8250-7.2.0_git20261010.tar.gz";
+     #   hash = "sha256-mTID04ZPrgZSFxpQdZZe+njiGGe8nE7wUWnoWABCNKQ=";
+     # };
+
+
      src = fetchurl {
-       url = "https://gitlab.postmarketos.org/soc/qualcomm-sm8250/linux/-/archive/sm8250-7.2.0_git20261010/linux-sm8250-7.2.0_git20261010.tar.gz";
+       url = "https://gitlab.nura.eco/Frieder.Hannenheim/sm-8250-mainline/-/archive/240c4e0ec544304eb8be8a2d75ac67200de8e4f8/sm-8250-mainline-240c4e0ec544304eb8be8a2d75ac67200de8e4f8.tar.gz";
        hash = "sha256-mTID04ZPrgZSFxpQdZZe+njiGGe8nE7wUWnoWABCNKQ=";
      };
-
       inherit version;
       isLTS = false;
       modDirVersion = lib.versions.pad 3 version;
-      extraMeta.branch = "7.2";
+      extraMeta.branch = "7.3";
 
 
       # kernelPatches = [
@@ -52,7 +57,7 @@ let
       #   kernelPatches.request_key_helper
       # ];
     };
-  version = "${kernel.version}-sdm845";
+  version = "${kernel.version}-sm8250";
 in
 kernel.override {
   argsOverride = {
@@ -81,5 +86,5 @@ kernel.override {
   configfile = ./config-postmarketos-qcom-sm8250.aarch64;
   extraMakeFlags = [ "KBUILD_BUILD_VERSION=1-postmarketos-qcom-sm8250" ];
   # To deal with all the unused option errors.
-  ignoreConfigErrors = true;
+  ignoreConfigErrors = false;
  }
