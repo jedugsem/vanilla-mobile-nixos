@@ -15,7 +15,7 @@ in
   options.vanilla-mobile.soc.sm8250 = {
     enable = lib.mkEnableOption "sm8250";
 
-    #audio.enable = lib.mkEnableOption "audio";
+    audio.enable = lib.mkEnableOption "audio";
     #modem.enable = lib.mkEnableOption "modem";
     #sensors.enable = lib.mkEnableOption "sensors";
   };
@@ -26,7 +26,7 @@ in
         vanilla-mobile.soc = {
           qualcomm.enable = true;
           sm8250 = {
-            # audio.enable = lib.mkDefault true;
+            audio.enable = lib.mkDefault true;
             #modem.enable = lib.mkDefault true;
             #sensors.enable = lib.mkDefault true;
           };
@@ -67,16 +67,16 @@ in
           };
         };
       }
-      # Audio
-      # (lib.mkIf cfg.audio.enable {
-      #   vanilla-mobile = {
-      #     soc.qualcomm.audio.enable = true;
-      #     alsa-ucm-conf = {
-      #       enable = true;
-      #       package = self.packages.alsa-ucm-conf-sdm845;
-      #     };
-      #   };
-      # })
+      #Audio
+      (lib.mkIf cfg.audio.enable {
+        vanilla-mobile = {
+          soc.qualcomm.audio.enable = true;
+          alsa-ucm-conf = {
+            enable = true;
+            package = self.packages.alsa-ucm-conf-sm8250;
+          };
+        };
+      })
       # Modem
       # (lib.mkIf cfg.modem.enable {
       #   vanilla-mobile.soc.qualcomm.modem.enable = true;
