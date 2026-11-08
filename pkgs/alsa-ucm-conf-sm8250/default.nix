@@ -8,7 +8,7 @@
 
   symlinkJoin {
     pname = "alsa-ucm-conf-sm8250";
-    version = "0-unstable-2026-05-07";
+    version = 2;
 
     paths = [
       pkgs.alsa-ucm-conf
