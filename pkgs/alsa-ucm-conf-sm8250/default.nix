@@ -8,7 +8,7 @@
 
   symlinkJoin {
     pname = "alsa-ucm-conf-sm8250";
-    version = "2";
+    version = "3";
 
     paths = [
       pkgs.alsa-ucm-conf
@@ -25,6 +25,6 @@
       $out/share/alsa/ucm2/OnePlus/HiFi.conf
 
     ln -sf ../../OnePlus/O8T.conf \
-      $out/share/alsa/ucm2/conf.d/sm8250/O8T.conf
+      $out/share/alsa/ucm2/conf.d/sm8250/oneplus-OnePlus8T.conf
     '';
   }
