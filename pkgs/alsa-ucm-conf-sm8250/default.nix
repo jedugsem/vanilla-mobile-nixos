@@ -18,13 +18,13 @@
       mkdir -p $out/share/alsa/ucm2/OnePlus
       mkdir -p $out/share/alsa/ucm2/conf.d/sm8250
 
-      cp ${./OnePlus\ 8T.conf} \
-        $out/share/alsa/ucm2/OnePlus/O8T.conf
+    cp ${./OnePlus8T.conf} \
+      $out/share/alsa/ucm2/OnePlus/O8T.conf
 
-      cp ${./HiFi.conf} \
-        $out/share/alsa/ucm2/OnePlus/HiFi.conf
+    cp ${./HiFi.conf} \
+      $out/share/alsa/ucm2/OnePlus/HiFi.conf
 
-      ln -sf ../../OnePlus/O8T.conf \
-        $out/share/alsa/ucm2/conf.d/sm8250/O8T.conf
+    ln -sf ../../OnePlus/O8T.conf \
+      $out/share/alsa/ucm2/conf.d/sm8250/O8T.conf
     '';
   }
