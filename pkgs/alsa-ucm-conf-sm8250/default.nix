@@ -1,51 +1,30 @@
 {
   lib,
   stdenvNoCC,
+  symlinkJoin,
+  pkgs,
   fetchFromGitLab,
 }:
 
-stdenvNoCC.mkDerivation (finalAttrs: {
-  pname = "alsa-ucm-conf-sm8250";
-  version = "0-unstable-2026-05-07";
+  symlinkJoin {
+    pname = "alsa-ucm-conf-sm8250";
+    version = "0-unstable-2026-05-07";
 
+    paths = [
+      pkgs.alsa-ucm-conf
+    ];
 
-      src = ./.;
+    postBuild = ''
+      mkdir -p $out/share/alsa/ucm2/OnePlus
+      mkdir -p $out/share/alsa/ucm2/conf.d/sm8250
 
-      dontConfigure = true;
-      dontBuild = true;
-      dontFixup = true;
+      cp ${./OnePlus\ 8T.conf} \
+        $out/share/alsa/ucm2/OnePlus/O8T.conf
 
-  # src = fetchFromGitLab {
-  #   owner = "sdm845-mainline";
-  #   repo = "alsa-ucm-conf";
-  #   rev = "628b9900cdd2b9b8356201293f1da5396cf0ca27";
-  #   hash = "sha256-8RvxmqD7zU/kZO7AYU/XOf9nXKewM8vAHordJfSvwS4=";
-  # };
+      cp ${./HiFi.conf} \
+        $out/share/alsa/ucm2/OnePlus/HiFi.conf
 
-  # patches = [
-  #   # See <https://gitlab.com/sdm845-mainline/alsa-ucm-conf/-/merge_requests/32>.
-  #   ./uboot-beryllium.patch
-  # ];
-
-  installPhase = ''
-    runHook preInstall
-
-    mkdir -p $out/share/alsa/ucm2/conf.d/sm8250
-    mkdir -p $out/share/alsa/ucm2/OnePlus
-    install -Dm644 OnePlus8T.conf "$out/share/alsa/ucm2/conf.d/sm8250/OnePlus 8T.conf"
-
-    install -Dm644 HiFi.conf "$out/share/alsa/ucm2/OnePlus/HiFi.conf"
-    # mkdir -p $out/share/alsa
-    # cp -r ucm2 $out/share/alsa
-
-    runHook postInstall
-  '';
-
-  meta = {
-    description = "ALSA UCM configuration for Qualcomm sm8250 devices";
-    homepage = "https://github.com/AsahiLinux/alsa-ucm-conf-asahi";
-    license = lib.licenses.bsd3;
-    maintainers = with lib.maintainers; [ new ];
-    platforms = [ "aarch64-linux" ];
-  };
-})
+      ln -sf ../../OnePlus/O8T.conf \
+        $out/share/alsa/ucm2/conf.d/sm8250/O8T.conf
+    '';
+  }
